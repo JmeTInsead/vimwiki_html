@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Learn Vimwiki</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="VimWiki Notes"><h1 id="VimWiki Notes" class="header"><a href="#VimWiki Notes">VimWiki Notes</a></h1></div>
+
+
+<div id="VimWiki Notes-Update .vimrc"><h2 id="Update .vimrc" class="header"><a href="#VimWiki Notes-Update .vimrc">Update .vimrc</a></h2></div>
+<ul>
+<li>
+Change default directory from root to /Documents
+
+<li>
+Todo List
+
+<ul>
+<li>
+Update symbols for todo lists
+
+<li>
+Create function for to do list
+
+<li>
+map &lt;leader&gt;tt
+
+<li>
+Update Parent and Child Task List function
+
+<li>
+set foldmethod = indent
+
+<li>
+set foldlevel=99
+
+</ul>
+</ul>
+<div id="VimWiki Notes-Setting up sync to Github"><h2 id="Setting up sync to Github" class="header"><a href="#VimWiki Notes-Setting up sync to Github">Setting up sync to Github</a></h2></div>
+
+<ol>
+<li>
+Create Github Rep - No Read Me and Private Repository
+
+<li>
+Initialise Git in Vimwiki Directory
+
+<ul>
+<li>
+cd ~/Documents/vimwiki #navigate to the directory
+
+<li>
+Add the Remote Repository: git remote add origin <a href="https://github.com/JmeTInsead/vimwiki-notes.git">https://github.com/JmeTInsead/vimwiki-notes.git</a>
+
+<li>
+Add all files to Git: git add .
+
+<li>
+Commit the changes: git commit -m "Initial Vimwiki sync"
+
+<li>
+Push to Github: 
+
+<ul>
+<li>
+git branch -M main #Rename the branch to 'main' if needed
+
+<li>
+git push -u origin main
+
+</ul>
+</ul>
+<li>
+Ensure that you are connected to Github using PAT
+
+<ul>
+<li>
+Developer Access and provide full access to repo.
+
+<li>
+Update Remote URL to use PAT: git remote set-url origin <a href="https://yourusername:yourtoken@github.com/yourusername/vimwiki-notes.git">https://yourusername:yourtoken@github.com/yourusername/vimwiki-notes.git</a>
+
+<li>
+git push origin main #Push your vimwiki again
+
+</ul>
+<li>
+Automate Syncing with a Shell Script 
+
+<ul>
+<li>
+Create a Sync Script in folder i.e. vim ~/Documents/vimwiki/sync.sh
+
+<li>
+Paste the following script
+<pre><code>#!/bin/bash
+cd ~/Documents/vimwiki
+git add .
+git commit -m "Auto-sync Vimwiki notes"
+git push origin main
+echo "Vimwiki synced to GitHub! 🚀"
+* Make the script executable: chmod +x /Users/jamietan/Documents/vimwiki/sync.sh
+* Run the script with
+* /Users/jamietan/Documents/vimwiki/sync.sh
+* ./sync.sh (when inside the wiki folder)
+</code></pre>
+
+</ul>
+</ol>
+</code></pre>
+<div id="VimWiki Notes-Retrieving from Github"><h2 id="Retrieving from Github" class="header"><a href="#VimWiki Notes-Retrieving from Github">Retrieving from Github</a></h2></div>
+<ul>
+<li>
+Check that you have git installed: git --version
+
+<li>
+Make the directory where you will store the cloned github repo.
+
+<li>
+Clone the repository: git clone &lt;repository-url&gt; &lt;localfoldername&gt;
+
+<li>
+Enter the local directory where you cloned it and pull the latest code: git pull origin main
+
+<li>
+Set up .vimrc to point to this folder
+
+</ul>
+
+</body>
+</html>

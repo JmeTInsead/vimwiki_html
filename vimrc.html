@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>vimrc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+"Setting the leader key to space
+let mapleader=" "  
+</p>
+
+<p>
+"Add the KeyMapping for NerdTree
+map &lt;Leader&gt;nt :NERDTreeToggle&lt;CR&gt;
+" Open Vimwiki Index
+nnoremap &lt;Leader&gt;w :VimwikiIndex&lt;CR&gt;
+</p>
+
+<p>
+" Open a specific wiki page
+nnoremap &lt;Leader&gt;p :VimwikiDiaryIndex&lt;CR&gt;
+</p>
+
+<p>
+" Toggle Vimwiki (if you want to switch between wiki and your previous buffer)
+nnoremap &lt;Leader&gt;t :VimwikiToggle&lt;CR&gt;
+</p>
+
+<p>
+set nocompatible
+</p>
+
+<p>
+set wrap
+</p>
+
+<p>
+set encoding=utf-8
+</p>
+
+<p>
+set number
+</p>
+
+<p>
+set laststatus=2
+</p>
+
+<p>
+"Vimwiki
+let g:vimwiki_list = [{
+</p>
+<pre><code>\ 'path': '~/Documents/vimwiki',
+\ 'syntax': 'default',
+\ 'ext': '.wiki'
+</code></pre>
+<p>
+\ }]
+</p>
+
+
+<p>
+let g:vimwiki_todo_lists = [{'todo': '[]', 'doing': '[o]', 'done': '[X]', 'cancelled': '[-]','moved': '[&gt;]'}]
+</p>
+
+<p>
+function! ToggleCheckbox()
+</p>
+<pre><code>let line = getline('.')
+if line =~ '\[ \]'
+let newline = substitute(line, '\[ \]', '[X]', '')
+elseif line =~ '\[X\]'
+let newline = substitute(line, '\[X\]', '[o]', '')
+elseif line =~ '\[o\]'
+let newline = substitute(line, '\[o\]', '[-]', '')
+elseif line =~ '\[-\]'
+let newline = substitute(line, '\[-\]', '[&gt;]', '')
+elseif line =~ '\[&gt;\]'
+let newline = substitute(line, '\[&gt;\]', '[ ]', '')
+else
+return
+endif
+call setline('.', newline)
+</code></pre>
+<p>
+endfunction
+</p>
+
+<p>
+nnoremap &lt;leader&gt;tt :call ToggleCheckbox()&lt;CR&gt;
+</p>
+
+<p>
+function! UpdateParentTask()
+</p>
+<pre><code>let lnum = line('.')
+let indent_level = indent(lnum)
+
+" Find the parent task (first line above with lower indent level)
+let parent_line = lnum - 1
+while parent_line &gt; 0 &amp;&amp; indent(parent_line) &gt;= indent_level
+let parent_line -= 1
+endwhile
+</code></pre>
+<pre><code>" If no parent is found, return
+if parent_line &lt;= 0
+return
+endif
+</code></pre>
+<pre><code>" Get all child tasks
+let start = lnum
+let end = search('^\S', 'n') - 1
+if end &lt; start
+let end = line('$')
+endif
+</code></pre>
+<pre><code>" Count task statuses
+let unchecked = 0
+let checked = 0
+for i in range(start, end)
+let line_text = getline(i)
+if line_text =~ '\[ \]'
+let unchecked += 1
+elseif line_text =~ '\[X\]'
+let checked += 1
+endif
+endfor
+</code></pre>
+<pre><code>" Determine new status for the parent task
+let parent_text = getline(parent_line)
+if checked &gt; 0 &amp;&amp; unchecked == 0
+let new_parent_text = substitute(parent_text, '\[.\]', '[X]', '')
+elseif checked &gt; 0
+let new_parent_text = substitute(parent_text, '\[.\]', '[o]', '')
+else
+let new_parent_text = substitute(parent_text, '\[.\]', '[ ]', '')
+endif
+</code></pre>
+<pre><code>" Update the parent task line
+call setline(parent_line, new_parent_text)
+</code></pre>
+<p>
+endfunction
+</p>
+
+<p>
+" Bind this function to the task toggle key (\tt)
+nnoremap &lt;silent&gt; &lt;Leader&gt;tt :call ToggleCheckbox()&lt;CR&gt;:call UpdateParentTask()&lt;CR&gt;
+</p>
+
+
+
+<p>
+set foldmethod=indent
+set foldlevel=99
+</p>
+
+<p>
+"Set the colorscheme to desert
+colorscheme desert
+</p>
+
+<p>
+"Enable syntax highlighting
+syntax on
+</p>
+
+<p>
+"Set tab width
+set tabstop=4
+set shiftwidth=4
+set expandtab
+</p>
+
+<p>
+"Make scrolling smoother
+set scrolloff=5
+</p>
+
+<p>
+"Show the current mode in the insertline
+set showmode
+</p>
+
+
+<p>
+"Set auto-indentation
+set autoindent
+set smartindent
+</p>
+
+<p>
+"Show matching bracket
+set showmatch
+</p>
+
+<p>
+call plug#begin('~/.vim/plugged')
+</p>
+
+<p>
+"Nerd Tree
+Plug 'preservim/nerdtree'
+"View PDF in Vim
+Plug 'lervag/vimtex'
+"VimWiki
+Plug 'vimwiki/vimwiki'
+call plug#end()
+</p>
+
+</body>
+</html>

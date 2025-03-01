@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Unix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Unix Command"><h1 id="Unix Command" class="header"><a href="#Unix Command">Unix Command</a></h1></div>
+
+<ul>
+<li>
+Mac OS X is built on top of Darwin, a version of unix based on BSD 4.4, FreeBSD and the Mach microkernerl
+
+<li>
+Unix is case sensitive
+
+</ul>
+<div id="Unix Command-General"><h2 id="General" class="header"><a href="#Unix Command-General">General</a></h2></div>
+<ul>
+<li>
+date
+
+<li>
+who/who am i/finger/w 
+
+<li>
+Find out what shell you are using with echo \(SHELL or ps \)$
+
+<li>
+For zsh, use bindkey to find out all the key bindings
+
+<li>
+Use man &lt;command&gt; or ls --help for more help. Press q to exit out of man command
+
+<li>
+Groups - To see who current user is a group of.
+
+</ul>
+<div id="Unix Command-Less"><h2 id="Less" class="header"><a href="#Unix Command-Less">Less</a></h2></div>
+<ul>
+<li>
+Good for txt files and code files
+
+<li>
+Spacebar to move down
+
+<li>
+h to get help
+
+<li>
+q to quit
+
+</ul>
+<div id="Unix Command-Managing Files"><h2 id="Managing Files" class="header"><a href="#Unix Command-Managing Files">Managing Files</a></h2></div>
+<ul>
+<li>
+ls -ld directory/filename
+
+<li>
+Results: drwxrwxrwx@ 5 jamietan  staff  160 Feb 11 17:33 Ex_Files_Learning_Vim
+
+<ul>
+<li>
+d - directory
+
+<li>
+Permissions for owner, group, and others
+
+<li>
+@ → Indicates extended attributes (you can check them with ls -l@
+
+<li>
+(5) shows the number of hard links to this directory (typically includes the directory itself, its parent (..), and subdirectories).
+
+<li>
+The third column (jamietan) indicates the owner of the directory.
+
+<li>
+The fourth column (staff) shows the group the directory belongs to.
+
+<li>
+The fifth column (160) represents the size of the directory entry in bytes (not the total size of its contents).
+
+<li>
+The sixth column (Feb 11 17:33) shows the last modification date and time of the directory.
+
+<li>
+The last column is the name of the directory.
+
+</ul>
+<li>
+chmod permissions filename
+
+<li>
+u user g group o others a all / + add - delete = exactly / r read w write e execute
+
+<li>
+chmod u+w filename / chmod ug=rw *
+
+</ul>
+<div id="Unix Command-Manage Process"><h2 id="Manage Process" class="header"><a href="#Unix Command-Manage Process">Manage Process</a></h2></div>
+<ul>
+<li>
+Find process ps aux | grep process
+
+<li>
+Kill process kill -9 process
+
+<li>
+Check key bindings in bash/zsh with stty -a
+
+<li>
+Look for susp = ^z  (this is the command to suspend processes)
+
+<li>
+fg  = resume in foreground
+
+<li>
+bg = resume in background
+
+</ul>
+<div id="Unix Command-Manage Jobs"><h2 id="Manage Jobs" class="header"><a href="#Unix Command-Manage Jobs">Manage Jobs</a></h2></div>
+<ul>
+<li>
+Find jobs that are running jobs
+
+<li>
+Kill job kill %[jobnumber]
+
+</ul>
+<div id="Unix Command-Install Brew on Mac"><h2 id="Install Brew on Mac" class="header"><a href="#Unix Command-Install Brew on Mac">Install Brew on Mac</a></h2></div>
+<ul>
+<li>
+/bin/bash -c "$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</a>
+
+<li>
+brew --version
+
+<li>
+Run these commands in your terminal to add Homebrew to your PATH:
+<pre><code>echo &gt;&gt; /Users/jamietan/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; /Users/jamietan/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+</code></pre>
+
+<li>
+Run brew help to get started
+
+<li>
+Further documentation: <a href="https://docs.brew.sh">https://docs.brew.sh</a>
+
+</ul>
+<div id="Unix Command-Install FTP"><h2 id="Install FTP" class="header"><a href="#Unix Command-Install FTP">Install FTP</a></h2></div>
+<ul>
+<li>
+Check for version: which ftp
+
+<li>
+brew install inetutils
+
+<li>
+Alternative ftp: brew install lftp
+
+</ul>
+<div id="Unix Command-Install Lynx"><h2 id="Install Lynx" class="header"><a href="#Unix Command-Install Lynx">Install Lynx</a></h2></div>
+<ul>
+<li>
+which lynx or lynx --version
+
+<li>
+brew install lynx
+
+<li>
+lynx "<a href="https://website&quot;">https://website"</a>
+
+<li>
+Spacebar to move forward or b to back
+
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Learn Vim</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Learn Vim"><h1 id="Learn Vim" class="header"><a href="#Learn Vim">Learn Vim</a></h1></div>
+<ul>
+<li>
+<a href="Vim Commands.html">Vim Commands</a>
+
+<li>
+
+
+</ul>
+<div id="Learn Vim-Setting up Plugins"><h2 id="Setting up Plugins" class="header"><a href="#Learn Vim-Setting up Plugins">Setting up Plugins</a></h2></div>
+
+<ul>
+<li>
+Install vim-plug
+
+<ul>
+<li>
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs <a href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim">https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</a>
+
+</ul>
+<li>
+Verify installation by checking the file exists: ls ~/.vim/autoload/plug.vim
+
+<li>
+Add Plugin configuration into .vimrc (Refer to configuration file below)
+
+<li>
+Run :PlugInstall
+
+<li>
+Run configuration file in vim - :source ~/.vimrc
+
+</ul>
+<div id="Learn Vim-Setting up Plugins-NERDTree configuration"><h3 id="NERDTree configuration" class="header"><a href="#Learn Vim-Setting up Plugins-NERDTree configuration">NERDTree configuration</a></h3></div>
+
+<ul>
+<li>
+Add NERDtree to vim configuration file
+<pre><code>call plug#begin('~/.vim/plugged')
+" Install NERDTree
+Plug 'preservim/nerdtree'
+call plug#end()
+
+" Open NERDTree automatically when Vim starts
+autocmd VimEnter * NERDTree
+</code></pre>
+" Close Vim if NERDTree is the last window open
+autocmd BufEnter * if winnr('$') == 1 &amp;&amp; exists('b:NERDTree') | quit | endif
+</code></pre>
+</code></pre>
+
+</ul>
+
+</body>
+</html>

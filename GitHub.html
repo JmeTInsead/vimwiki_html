@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>GitHub</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<p>
+== 
+</p>
+
+
+
+
+
+
+<div id="Connecting GitHub to Visual Studio Code"><h2 id="Connecting GitHub to Visual Studio Code" class="header"><a href="#Connecting GitHub to Visual Studio Code">Connecting GitHub to Visual Studio Code</a></h2></div>
+
+<ul>
+<li>
+Open Visual Studio Code Terminal and check if git is installed: git --version
+
+<li>
+Configure git
+
+<ul>
+<li>
+git config --global user.name "Your Name"
+
+<li>
+git config --global user.email "your-email@example.com"
+
+</ul>
+<li>
+Generate an SSH key (Optional for Authentication) - recommended for secure authentication 
+
+<ul>
+<li>
+Generate SSH Key: ssh-keygen -t rsa -b 4096 -C "your-email@example.com". Press Enter to save in default location and set a passphrase or leave it blank. 
+
+<ul>
+<li>
+Copy the SSH key to Git Hub
+
+<ul>
+<li>
+Run cat ~/.ssh/id_rsa.pub
+
+<li>
+Copy the displayed key and go to GitHub → Settings → SSH and GPG keys → New SSH key. Paste the copied key and save it. 
+
+</ul>
+</ul>
+</ul>
+<li>
+Open VS Code Click on Source Control (Cmd+Shift+G on mac) and sign in with Github. 
+
+</ul>
+<div id="Connecting GitHub to Visual Studio Code-Create a New Repository and Push to GitHub"><h3 id="Create a New Repository and Push to GitHub" class="header"><a href="#Connecting GitHub to Visual Studio Code-Create a New Repository and Push to GitHub">Create a New Repository and Push to GitHub</a></h3></div>
+
+<ul>
+<li>
+Use terminal and navigate tot he folder of the project 
+
+<li>
+Initialise Git: git init
+
+<li>
+Add files to Git: git add . (this may take a while)
+
+<li>
+Commit the files: git commit -m "First commit"
+
+<li>
+Connect the local repo to GitHub: git remote add origin <a href="https://github.com/your-username/your-repo.git">https://github.com/your-username/your-repo.git</a>
+
+<li>
+Push the code: git push -u origin main
+
+<li>
+If using SSH, replace the https:// URL with git@github.com:your-username/your-repo.git.
+
+</ul>
+<div id="Connecting GitHub to Visual Studio Code-Clone an Existing GitHub Repository"><h3 id="Clone an Existing GitHub Repository" class="header"><a href="#Connecting GitHub to Visual Studio Code-Clone an Existing GitHub Repository">Clone an Existing GitHub Repository</a></h3></div>
+<ul>
+<li>
+Open the Comman Pallete (Cmd + Shift + P on mac)
+
+<li>
+Type and select Git:Clone
+
+<li>
+Paste the repository URL from GitHub
+
+<li>
+Choose a local folder to save the repository.
+
+<li>
+Open the cloned folder in VS Code. 
+
+</ul>
+<div id="Connecting GitHub to Visual Studio Code-Pull and Push Changes"><h3 id="Pull and Push Changes" class="header"><a href="#Connecting GitHub to Visual Studio Code-Pull and Push Changes">Pull and Push Changes</a></h3></div>
+
+<ul>
+<li>
+Pull the latest changes from GitHub: git pull origin main
+
+<li>
+Push the new changes:
+
+<ul>
+<li>
+git add .
+
+<li>
+git commit -m "Updated changes"
+
+<li>
+git push origin main
+
+</ul>
+</ul>
+ 
+<div id="Connecting GitHub to Visual Studio Code-Merge Conflicts"><h3 id="Merge Conflicts" class="header justcenter"><a href="#Connecting GitHub to Visual Studio Code-Merge Conflicts">Merge Conflicts</a></h3></div>
+<ul>
+<li>
+New computer must pull the latest changes from Github: git pull origin main
+
+<li>
+Resolve merge conflicts (if any)
+
+<ul>
+<li>
+If there are no conflicts, Git will automatically merge the changes
+
+<li>
+If conflict exists, Git will mark conflicting files and you'll need to manually resolve them in VS Code
+
+<li>
+Open the conflicting files in VS Code and choose which changes to keep. 
+
+<li>
+After resolve the conflict, add and commit
+
+<ul>
+<li>
+git add . 
+
+<li>
+git commit -m "Resolved merge conflicts"
+
+</ul>
+<li>
+Push the updated code to GitHub
+
+<ul>
+<li>
+git push origin main
+
+</ul>
+</ul>
+</ul>
+<li>
+Rebase is another method
+
+<ul>
+<li>
+Fetch the latest changes without merging: git fetch origin
+
+<li>
+Rebase your local changes on top of the latest remote changes: git rebase origin/main. If there are conflicts, Git will stop and ask you to resolve them. 
+
+<li>
+After resolving, continue rebase with: git rebase --continue
+
+<li>
+Push the rebased changes: git push origin main
+
+</ul>
+<pre><code>
+</pre></code>
+
+</body>
+</html>

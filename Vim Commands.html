@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Vim Commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="VIM Commands"><h1 id="VIM Commands" class="header"><a href="#VIM Commands">VIM Commands</a></h1></div>
+
+<div id="VIM Commands-Basic Navigation"><h2 id="Basic Navigation" class="header"><a href="#VIM Commands-Basic Navigation">Basic Navigation</a></h2></div>
+
+<p>
+h → Move left
+l → Move right
+j → Move down
+k → Move up
+w → Move to the next word
+b → Move to the beginning of the previous word
+0 → Move to the beginning of the line
+^ → Move to the first non-blank character of the line
+$ → Move to the end of the line
+gg → Move to the beginning of the file
+G → Move to the end of the file
+Ctrl-d → Move half a screen down
+Ctrl-u → Move half a screen up
+Ctrl-f → Move one full screen down
+Ctrl-b → Move one full screen up
+</p>
+
+<div id="VIM Commands-Insert Mode"><h2 id="Insert Mode" class="header"><a href="#VIM Commands-Insert Mode">Insert Mode</a></h2></div>
+<p>
+i → Enter insert mode before the cursor
+I → Insert at the beginning of the line
+a → Insert after the cursor
+A → Insert at the end of the line
+o → Open a new line below
+O → Open a new line above
+Esc → Exit insert mode
+</p>
+
+<div id="VIM Commands-Editing"><h2 id="Editing" class="header"><a href="#VIM Commands-Editing">Editing</a></h2></div>
+<p>
+x → Delete the character under the cursor
+X → Delete the character before the cursor
+dd → Delete (cut) the current line
+yy → Copy (yank) the current line
+p → Paste after the cursor
+P → Paste before the cursor
+u → Undo
+Ctrl-r → Redo
+r&lt;char&gt; → Replace the character under the cursor
+R → Enter replace mode
+:s/oldword/newword or :s/oldword/newword/gc (g switch to replace all)
+</p>
+
+<div id="VIM Commands-Searching"><h2 id="Searching" class="header"><a href="#VIM Commands-Searching">Searching</a></h2></div>
+<p>
+/pattern → Search forward for "pattern"
+?pattern → Search backward for "pattern"
+n → Repeat last search in the same direction
+N → Repeat last search in the opposite direction
+</p>
+<ul>
+<li>
+→ Search forward for the word under the cursor
+
+<li>
+→ Search backward for the word under the cursor
+
+</ul>
+<div id="VIM Commands-Saving &amp; Exiting"><h2 id="Saving &amp; Exiting" class="header"><a href="#VIM Commands-Saving &amp; Exiting">Saving &amp; Exiting</a></h2></div>
+<p>
+:w → Save file
+:q → Quit
+:wq or ZZ → Save and quit
+:q! → Quit without saving
+:w filename → Save as a new file
+</p>
+
+<div id="VIM Commands-Working with Multiple Files"><h2 id="Working with Multiple Files" class="header"><a href="#VIM Commands-Working with Multiple Files">Working with Multiple Files</a></h2></div>
+<p>
+:e filename → Open a file
+:bn → Next buffer
+:bp → Previous buffer
+:bd → Close (delete) current buffer
+:sp filename → Split window and open file
+:vs filename → Vertical split and open file
+Ctrl-w w → Switch between splits
+</p>
+
+<div id="VIM Commands-Creating Marks"><h2 id="Creating Marks" class="header"><a href="#VIM Commands-Creating Marks">Creating Marks</a></h2></div>
+<p>
+mA (global mark) ma (local mark). Call a mark 'A
+</p>
+
+<ul>
+<li>
+Add character for multiple lines
+
+</ul>
+<p>
+## Front
+</p>
+<ol>
+<li>
+ Navigate to the start of the place for the first line.
+
+<li>
+Use Ctrl V (Visual Block) and J/arrow key to highlight several lines
+
+<li>
+Use Shift + I to indicate you want to enter with the cursor.
+
+<li>
+Click Esc and all lines will be populated. 
+
+</ol>
+<p>
+## Back
+</p>
+<ol>
+<li>
+Navigate to the end of the first line where you want to insert the symbol.
+
+<li>
+Use Ctrl +V (Visual block) and highlight multiple lines
+
+<li>
+Use Shift + A to indicate you want to enter after the cursor. 
+   Click esc and all lines will be populated. 
+
+</ol>
+
+</body>
+</html>
